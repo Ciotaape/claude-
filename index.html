@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claro tv+ Box</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+<!-- Meta Pixel (Alpha Conexão) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+try{fbq('init','2508730242959515');fbq('track','PageView');}catch(e){}
+</script>
+<style>
+:root{
+  --bg:#000;
+  --bg2:#0d0507;
+  --ink:#fff;
+  --muted:#b9b3b5;
+  --red:#e3051b;
+  --red2:#ff2a3d;
+  --red-dark:#8a0010;
+  --card:#f1f1f1;
+  --card-ink:#111;
+  --line:#2a1216;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#000}}
+:root[data-theme="dark"]{--bg:#000}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;line-height:1.45;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+.wrap{width:100%;max-width:880px;margin:0 auto;padding:0 16px}
+
+/* ---------- HERO / VSL ---------- */
+.hero{padding:44px 0 56px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(227,5,27,.18),transparent 60%),var(--bg)}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red2);border:1px solid rgba(255,42,61,.45);padding:6px 12px;border-radius:999px;margin-bottom:20px}
+h1{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(20px,3.4vw,30px);line-height:1.25;letter-spacing:-.01em}
+.hl{background:var(--red);color:#fff;padding:0 6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.watch{margin:26px 0 22px;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(18px,2.6vw,24px)}
+.watch span{display:inline-block;animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+
+.player{position:relative;width:100%;max-width:760px;margin:0 auto;aspect-ratio:1280/540;background:#111;border-radius:6px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 20px 60px rgba(227,5,27,.25)}
+.player video{width:100%;height:100%;object-fit:cover}
+.unmute{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,.45);border:0;color:#fff;cursor:pointer;font:inherit}
+.unmute .ring{width:84px;height:84px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 0 rgba(227,5,27,.7);animation:pulse 1.8s infinite}
+.unmute .ring svg{width:34px;height:34px;margin-left:5px}
+.unmute b{font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.05em;background:rgba(0,0,0,.6);padding:6px 12px;border-radius:4px}
+@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(227,5,27,0)}100%{box-shadow:0 0 0 0 rgba(227,5,27,0)}}
+.bar{position:absolute;left:0;bottom:0;height:5px;width:0;background:var(--red2);transition:width .25s linear}
+
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:28px;width:100%;max-width:500px;padding:18px 22px;background:linear-gradient(180deg,var(--red2),var(--red));color:#fff;text-decoration:none;font-weight:800;font-size:clamp(15px,2.2vw,19px);text-transform:uppercase;border-radius:6px;box-shadow:0 0 28px rgba(227,5,27,.55);transition:transform .15s}
+.cta{animation:breathe 2.6s ease-in-out infinite}
+.cta:hover{animation-play-state:paused}
+@keyframes breathe{
+  0%,100%{transform:scale(1);box-shadow:0 0 22px rgba(227,5,27,.45)}
+  50%{transform:scale(1.05);box-shadow:0 0 40px rgba(227,5,27,.8)}
+}
+.cta svg{width:22px;height:22px;flex:none}
+.streams{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;max-width:760px;margin:14px auto 0}
+.streams span{font-weight:700;font-size:12px;padding:4px 10px;border-radius:999px;background:#140407;border:1px solid rgba(255,42,61,.45);color:#fff;box-shadow:0 0 14px rgba(227,5,27,.18)}
+.inc{margin-top:8px;font-weight:700;font-size:11px;color:var(--red2);text-transform:uppercase;letter-spacing:.06em}
+.small{margin-top:12px;font-size:13px;color:var(--muted)}
+
+/* ---------- BENEFÍCIOS ---------- */
+.band{background:linear-gradient(180deg,#000 0%,#1a0307 55%,#5c0010 100%);padding:64px 0 90px;position:relative}
+.brand{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(26px,4.6vw,40px);text-align:center;letter-spacing:-.01em}
+.brand .hl{padding:0 10px;margin-left:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 28px;margin-top:44px;text-align:center}
+.item svg{width:62px;height:62px;color:var(--red2);margin:0 auto 16px}
+.item h3{font-size:16px;font-weight:800;margin-bottom:6px}
+.item p{font-size:15px;color:#e8e2e3;font-weight:500}
+.curve{position:absolute;left:0;right:0;bottom:-1px;height:50px;background:#f1f1f1;clip-path:ellipse(75% 100% at 50% 100%)}
+
+/* ---------- OFERTA ---------- */
+.offer{background:#f1f1f1;color:#111;padding:56px 0 64px}
+.offer .inner{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.box3d{position:relative;aspect-ratio:1;max-width:340px;margin:0 auto;border-radius:50%;background:radial-gradient(circle at 50% 40%,#2a0b10,#0b0405 70%);border:6px solid var(--red);box-shadow:0 0 30px rgba(227,5,27,.45);display:grid;place-items:center;overflow:hidden}
+.box3d img{width:100%;height:100%;object-fit:cover;opacity:.95}
+.price-card h2{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(24px,3.6vw,34px);line-height:1.15}
+.price-card h2 .hl{padding:0 8px}
+.price{margin:18px 0 6px;display:flex;align-items:flex-end;gap:6px;font-weight:900}
+.price .cur{font-size:24px;padding-bottom:10px}
+.price .val{font-size:clamp(56px,9vw,78px);line-height:1;color:var(--red);letter-spacing:-.03em}
+.price .per{font-size:18px;padding-bottom:12px;color:#555}
+.price-card ul{list-style:none;margin:16px 0 4px}
+.price-card li{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:15px;padding:6px 0}
+.price-card li svg{width:20px;height:20px;color:var(--red);flex:none;margin-top:1px}
+.offer .cta{margin-top:20px}
+
+/* ---------- FAQ / SOBRE ---------- */
+.faq{background:linear-gradient(180deg,#2a0008 0%,#000 100%);padding:60px 0 50px}
+.faq h2{text-align:center;font-weight:900;text-transform:uppercase;font-size:clamp(24px,4vw,34px);margin-bottom:26px}
+.acc{max-width:820px;margin:0 auto;background:var(--card);color:var(--card-ink);border:3px solid #0a0a0a;border-radius:6px;box-shadow:0 0 0 2px var(--red),0 0 24px rgba(227,5,27,.35);overflow:hidden}
+.acc details{border-top:1px solid #111}
+.acc details:first-child{border-top:0}
+.acc summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;gap:14px;align-items:center;font-weight:800;font-style:italic;text-transform:uppercase;font-size:15px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .ic{width:18px;height:18px;flex:none;transition:transform .2s}
+.acc details[open] summary .ic{transform:rotate(180deg)}
+.acc .body{padding:0 22px 22px 54px;font-size:15px;font-weight:500;color:#333}
+
+footer{background:#000;text-align:center;padding:40px 16px 110px;font-size:13px;font-weight:600;color:#ddd}
+footer small{display:block;margin-top:6px;color:#888;font-weight:500}
+
+/* botão flutuante */
+
+@media (max-width:720px){
+  .hero{padding-top:16px;padding-bottom:40px}
+  .tag{font-size:10px;padding:4px 10px;margin-bottom:12px}
+  h1{font-size:22px;line-height:1.22}
+  .watch{font-size:17px;margin:14px 0 10px}
+  .player{width:auto;margin:0 -16px;border-radius:0;aspect-ratio:1280/540}
+  .unmute{gap:8px}
+  .unmute .ring{width:56px;height:56px}
+  .unmute .ring svg{width:24px;height:24px}
+  .unmute b{font-size:13px;padding:5px 9px}
+  .streams{gap:5px}
+  .streams span{font-size:11px;padding:4px 8px}
+  .inc{font-size:10px}
+  .cta{font-size:18px;padding:18px 16px;min-height:60px;margin-top:16px}
+  .cta svg{width:26px;height:26px}
+  .small{font-size:14px}
+  .brand{font-size:34px}
+  .grid{grid-template-columns:1fr;gap:34px}
+  .item svg{width:58px;height:58px}
+  .item h3{font-size:19px}
+  .item p{font-size:16px!important;max-width:320px;margin:0 auto}
+  .price-card h2{font-size:30px}
+  .price .val{font-size:72px}
+  .price-card li{font-size:17px}
+  .faq h2{font-size:30px}
+  .acc summary{font-size:16px;padding:20px 18px}
+  .acc .body{font-size:16px}
+  footer{font-size:14px}
+  .grid{grid-template-columns:1fr 1fr;gap:28px 16px}
+  .item svg{width:48px;height:48px}
+  .item p{font-size:14px}
+  .offer .inner{grid-template-columns:1fr;text-align:center}
+  .price{justify-content:center}
+  .price-card ul{display:inline-block;text-align:left}
+  .box3d{max-width:260px}
+  .acc .body{padding-left:22px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.24 8.24 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m6 6 6 6 6-6M6 12l6 6 6-6"/></symbol>
+</svg>
+
+<!-- ================= VSL ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="tag">Revenda autorizada Claro</div>
+    <h1>Claro tv+ Box com 6 streamings inclusos <span class="hl">por apenas <span style="white-space:nowrap">R$ 159,90/mês</span></span></h1>
+
+    <p class="watch">Assista o vídeo abaixo <span>👇</span></p>
+
+    <div class="player" id="player">
+      <video id="vsl" src="tvbox.mp4" poster="poster.jpg" playsinline muted autoplay loop preload="metadata"></video>
+      <button class="unmute" id="unmute" aria-label="Assistir com som">
+        <span class="ring"><svg viewBox="0 0 24 24"><path fill="#fff" d="M7 4.5v15l13-7.5z"/></svg></span>
+        <b>Clique para ouvir 🔊</b>
+      </button>
+      <div class="bar" id="bar"></div>
+    </div>
+
+    <div class="streams" aria-label="Streamings inclusos">
+      <span>Netflix</span><span>Globoplay</span><span>Disney+</span><span>Prime Video</span><span>HBO Max</span><span>Apple TV+</span>
+    </div>
+    <p class="inc">✔ Todos inclusos na mensalidade</p>
+
+    <a class="cta js-wa" href="#" data-msg="Olá! Vi o vídeo da Claro tv+ Box com 6 streamings por R$ 159,90 e quero saber mais.">
+      <svg><use href="#wa"/></svg> Quero minha TV Box agora
+    </a>
+    <p class="small">Atendimento rápido pelo WhatsApp · Consulte disponibilidade no seu endereço</p>
+  </div>
+</section>
+
+<!-- ================= BENEFÍCIOS ================= -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="brand">Claro <span class="hl">tv+ Box</span></h2>
+    <div class="grid">
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <h3>6 streamings inclusos</h3>
+        <p>Netflix, Globoplay, Disney+, Prime Video, HBO Max e Apple TV+ sem pagar assinatura separada.</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="currentColor"/></svg>
+        <h3>Filmes, séries e esportes</h3>
+        <p>Notícias, futebol, novelas e lançamentos — entretenimento pra família toda.</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
+        <h3>Conecte e assista</h3>
+        <p>Liga na TV, conecta na internet e pronto. Transforma qualquer TV em smart.</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <h3>Preço fixo</h3>
+        <p>R$ 159,90 por mês com tudo incluso, numa fatura só.</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <h3>Atendimento humano</h3>
+        <p>Consultor local te acompanha do pedido à instalação, direto no WhatsApp.</p>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>Atendemos Maceió</h3>
+        <p>Revenda autorizada Claro na região. Consulte a cobertura do seu endereço.</p>
+      </div>
+    </div>
+  </div>
+  <div class="curve"></div>
+</section>
+
+<!-- ================= OFERTA ================= -->
+<section class="offer">
+  <div class="wrap inner">
+    <div class="box3d"><img src="poster.jpg" alt="Claro tv+ Box"></div>
+    <div class="price-card">
+      <h2>Claro <span class="hl">tv+ Box</span></h2>
+      <div class="price"><span class="cur">R$</span><span class="val">159,90</span><span class="per">/mês</span></div>
+      <ul>
+        <li><svg><use href="#check"/></svg>Netflix, Globoplay e Disney+</li>
+        <li><svg><use href="#check"/></svg>Prime Video, HBO Max e Apple TV+</li>
+        <li><svg><use href="#check"/></svg>Instalação na sua casa</li>
+        <li><svg><use href="#check"/></svg>Atendimento local pelo WhatsApp</li>
+      </ul>
+      <a class="cta js-wa" href="#" data-msg="Olá! Quero contratar a Claro tv+ Box por R$ 159,90.">
+        <svg><use href="#wa"/></svg> Falar com um consultor
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOBRE / FAQ ================= -->
+<section class="faq">
+  <div class="wrap">
+    <h2>Sobre nós</h2>
+    <div class="acc">
+      <details open>
+        <summary><svg class="ic"><use href="#chev"/></svg>Quem é a Alpha Conexão?</summary>
+        <div class="body">Somos revenda autorizada Claro em Maceió. Você contrata com a gente e recebe o mesmo serviço e a mesma fatura oficial da Claro, com atendimento próximo e rápido.</div>
+      </details>
+      <details>
+        <summary><svg class="ic"><use href="#chev"/></svg>Quais streamings vêm inclusos?</summary>
+        <div class="body">Netflix, Globoplay, Disney+, Prime Video, HBO Max e Apple TV+. Todos já inclusos nos R$ 159,90 por mês, sem precisar pagar cada assinatura à parte.</div>
+      </details>
+      <details>
+        <summary><svg class="ic"><use href="#chev"/></svg>Como funciona a contratação?</summary>
+        <div class="body">Clique no botão, fale com um consultor no WhatsApp, informe seu endereço e a gente confirma a disponibilidade e agenda a instalação.</div>
+      </details>
+      <details>
+        <summary><svg class="ic"><use href="#chev"/></svg>Preciso de Smart TV?</summary>
+        <div class="body">Não. A Box liga em qualquer TV com entrada HDMI e deixa ela completa, com canais e apps.</div>
+      </details>
+      <details>
+        <summary><svg class="ic"><use href="#chev"/></svg>Atendem no meu bairro?</summary>
+        <div class="body">Atendemos Maceió e região. Mande seu endereço no WhatsApp que a gente verifica na hora.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  ALPHA CONEXÃO © 2026 · Revenda autorizada Claro · Todos os direitos reservados.
+  <small>Oferta sujeita à disponibilidade técnica no endereço. Valores e condições podem mudar sem aviso.</small>
+</footer>
+
+
+<script>
+// ====== CONFIG ======
+var WHATSAPP = '558234366605'; // (82) 3436-6605
+
+// links do WhatsApp + evento Lead no pixel
+document.querySelectorAll('.js-wa').forEach(function(a){
+  a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(a.dataset.msg || '');
+  a.target = '_blank'; a.rel = 'noopener';
+  a.addEventListener('click', function(){ try{ fbq('track','Lead',{content_name:'Claro tv+ Box',value:159.90,currency:'BRL'}); }catch(e){} });
+});
+
+// VSL: autoplay mudo, clique reinicia com som
+var v = document.getElementById('vsl'), btn = document.getElementById('unmute'), bar = document.getElementById('bar');
+btn.addEventListener('click', function(){
+  v.loop = false; v.muted = false; v.currentTime = 0; v.controls = false;
+  var p = v.play(); if (p && p.catch) p.catch(function(){});
+  btn.remove();
+  // no celular abre em tela cheia (deitado) pra ver o vídeo grande sem cortar
+  if (window.matchMedia('(max-width:720px)').matches) {
+    try {
+      if (v.requestFullscreen) {
+        v.requestFullscreen().then(function(){
+          if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(function(){});
+        }).catch(function(){});
+      } else if (v.webkitEnterFullscreen) { v.webkitEnterFullscreen(); }
+    } catch(e){}
+  }
+  try{ fbq('trackCustom','VSLPlay'); }catch(e){}
+});
+v.addEventListener('click', function(){ if (!btn.isConnected) { v.paused ? v.play() : v.pause(); } });
+v.addEventListener('timeupdate', function(){ if (v.duration) bar.style.width = (v.currentTime / v.duration * 100) + '%'; });
+document.addEventListener('fullscreenchange', function(){ if (!document.fullscreenElement && screen.orientation && screen.orientation.unlock) { try{ screen.orientation.unlock(); }catch(e){} } });
+v.addEventListener('ended', function(){ if (document.fullscreenElement) { document.exitFullscreen().catch(function(){}); } else if (v.webkitDisplayingFullscreen) { v.webkitExitFullscreen(); } document.querySelector('.hero .cta').scrollIntoView({behavior:'smooth', block:'center'}); });
+</script>
+</body>
+</html>
